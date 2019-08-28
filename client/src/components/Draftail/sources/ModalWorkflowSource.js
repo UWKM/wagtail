@@ -68,6 +68,7 @@ export const getChooserConfig = (entityType, entity, selectedText) => {
       } else {
         url = global.chooserUrls.externalLinkChooser;
         urlParams.link_url = data.url;
+        urlParams.target = data.target;
       }
     }
 
@@ -122,6 +123,7 @@ export const filterEntityData = (entityType, data) => {
 
     return {
       url: data.url,
+      target: data.target,
     };
   case DOCUMENT:
     return {

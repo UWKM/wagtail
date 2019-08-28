@@ -27,8 +27,12 @@ class URLOrAbsolutePathField(forms.URLField):
 
 
 class ExternalLinkChooserForm(forms.Form):
-    url = URLOrAbsolutePathField(required=True, label=ugettext_lazy(""))
+    url = URLOrAbsolutePathField(required=True, label=ugettext_lazy("URL"))
     link_text = forms.CharField(required=False)
+    target = forms.ChoiceField(choices=[
+        ('_blank', ugettext_lazy('New window')),
+        ('_self', ugettext_lazy('Same window'))
+    ], label=ugettext_lazy("Target"))
 
 
 class AnchorLinkChooserForm(forms.Form):

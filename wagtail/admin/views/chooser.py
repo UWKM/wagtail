@@ -193,6 +193,7 @@ def external_link(request):
     initial_data = {
         'url': request.GET.get('link_url', ''),
         'link_text': request.GET.get('link_text', ''),
+        'target': request.GET.get('target', ''),
     }
 
     if request.method == 'POST':
@@ -202,6 +203,7 @@ def external_link(request):
             result = {
                 'url': form.cleaned_data['url'],
                 'title': form.cleaned_data['link_text'].strip() or form.cleaned_data['url'],
+                'target': form.cleaned_data['target'],
                 # If the user has explicitly entered / edited something in the link_text field,
                 # always use that text. If not, we should favour keeping the existing link/selection
                 # text, where applicable.

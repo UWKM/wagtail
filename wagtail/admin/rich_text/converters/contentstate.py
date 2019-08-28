@@ -22,6 +22,7 @@ def link_entity(props):
         link_props['id'] = id_
     else:
         link_props['href'] = props.get('url')
+        link_props['target'] = props.get('target')
 
     return DOM.create_element('a', link_props, props['children'])
 
