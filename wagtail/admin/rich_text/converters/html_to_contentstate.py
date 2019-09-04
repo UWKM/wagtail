@@ -199,7 +199,7 @@ class LinkElementHandler(InlineEntityElementHandler):
 
 class ExternalLinkElementHandler(LinkElementHandler):
     def get_attribute_data(self, attrs):
-        return {'url': attrs['href'], 'target': attrs['target']}
+        return {'url': attrs['href'], 'target': getattr(attrs, 'href', '')}
 
 
 class PageLinkElementHandler(LinkElementHandler):
